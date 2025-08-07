@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #FEFCF8; /* warm-white */
+    --color-foreground: #2D1B1E; /* rich-dark */
+    --color-border: rgba(139, 38, 53, 0.12); /* burgundy-opacity */
+    --color-input: #F7F3EE; /* soft-cream */
+    --color-ring: #8B2635; /* deep-burgundy */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #2D1B1E; /* rich-dark */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #2D1B1E; /* rich-dark */
+    
+    /* Muted Colors */
+    --color-muted: #F7F3EE; /* soft-cream */
+    --color-muted-foreground: #6B4C57; /* muted-burgundy */
+    
+    /* Brand Colors */
+    --color-primary: #8B2635; /* deep-burgundy */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #D4A574; /* rose-gold */
+    --color-secondary-foreground: #2D1B1E; /* rich-dark */
+    
+    /* State Colors */
+    --color-destructive: #A0522D; /* sienna-brown */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    --color-accent: #C9A96E; /* champagne */
+    --color-accent-foreground: #2D1B1E; /* rich-dark */
+    --color-success: #7A8471; /* sage-green */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #B8860B; /* warm-amber */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #A0522D; /* sienna-brown */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* WhatsApp Integration */
+    --color-whatsapp: #25D366; /* whatsapp-green */
+    --color-whatsapp-foreground: #FFFFFF; /* white */
+    
+    /* Spacing & Layout */
+    --radius: 8px;
+    --shadow-primary: 0 4px 20px rgba(139, 38, 53, 0.08);
+    --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+  
+  .shadow-elevation {
+    box-shadow: var(--shadow-elevation);
+  }
+  
+  .text-gradient-brand {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, rgba(139, 38, 53, 0.8) 0%, rgba(212, 165, 116, 0.6) 100%);
+  }
+  
+  .whatsapp-pulse {
+    animation: whatsapp-pulse 2s infinite;
+  }
+  
+  @keyframes whatsapp-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+  }
+  
+  .transform-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transform-hover:hover {
+    transform: scale(1.02);
+  }
+}
